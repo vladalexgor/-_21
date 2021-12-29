@@ -24,9 +24,9 @@ namespace Задание_21
                 }
                 set
                 {
-                    if (value < 0)
+                    if (value < 1)
                     {
-                        N = 0;
+                        n = 1;
                     }
                     else
                     {
@@ -43,9 +43,9 @@ namespace Задание_21
                 }
                 set
                 {
-                    if (value < 0)
+                    if (value < 1)
                     {
-                        M = 0;
+                        m = 1;
                     }
                     else
                     {
@@ -55,10 +55,10 @@ namespace Задание_21
             }
             int[,] gardenField; 
 
-            public Garden(int N, int M)
+            public Garden(int n1, int m1)
             {
-                n = N;
-                m = M;
+                N = n1;
+                M = m1;
                 gardenField = new int[n, m];
             }
             public void Gardener1()
@@ -103,15 +103,13 @@ namespace Задание_21
         {
             try
             {
-                Console.WriteLine("Введите размеры участка земли двумя целыми числами N х M:");
-                int N = Convert.ToInt32(Console.ReadLine());
-                int M = Convert.ToInt32(Console.ReadLine());
-                Garden garden = new Garden(N, M);
+                Console.WriteLine("Введите размеры участка земли двумя целыми числами N х M (тестил на 500х50, чтобы видно было):");
+                int n = Convert.ToInt32(Console.ReadLine());
+                int m = Convert.ToInt32(Console.ReadLine());
+                Garden garden = new Garden(n, m);
                 ThreadStart threadStart = new ThreadStart(garden.Gardener2);
                 Thread thread = new Thread(threadStart);
-                //Thread.Sleep(2);
                 thread.Start();
-                //Thread.Sleep(2);
                 garden.Gardener1();
                 garden.Print();
             }
