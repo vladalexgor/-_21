@@ -72,6 +72,7 @@ namespace Задание_21
                             gardenField[i, j] = 1;
                         }
                     }
+                    Thread.Sleep(50);
                 }
             }
             public void Gardener2()
@@ -85,6 +86,7 @@ namespace Задание_21
                             gardenField[i, j] = 2;
                         }
                     }
+                    Thread.Sleep(30);
                 }
             }
             public void Print()
@@ -103,7 +105,7 @@ namespace Задание_21
         {
             try
             {
-                Console.WriteLine("Введите размеры участка земли двумя целыми числами N х M (тестил на 500х50, чтобы видно было):");
+                Console.WriteLine("Введите размеры участка земли двумя целыми числами N х M:");
                 int n = Convert.ToInt32(Console.ReadLine());
                 int m = Convert.ToInt32(Console.ReadLine());
                 Garden garden = new Garden(n, m);
